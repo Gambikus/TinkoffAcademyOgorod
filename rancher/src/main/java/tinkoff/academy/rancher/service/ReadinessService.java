@@ -1,21 +1,13 @@
 package tinkoff.academy.rancher.service;
 
-
-import org.springframework.stereotype.Service;
-
-@Service
 public class ReadinessService {
-    private volatile boolean readinessState;
-
-    public ReadinessService() {
-        readinessState = false;
-    }
+    private static volatile boolean readinessState = false;
 
 
     /**
      * Меняет состоние готовности сервиса на true
      */
-    public void changeReadinessStateToTrue() {
+    public static void changeReadinessStateToTrue() {
         readinessState = true;
     }
 
@@ -23,7 +15,7 @@ public class ReadinessService {
      * Возвращает состояние готовности сервиса
      * @return true, если сервис готов, и false, если не готов
      */
-    public boolean isServiceReady() {
+    public static boolean isServiceReady() {
         return readinessState;
     }
 }

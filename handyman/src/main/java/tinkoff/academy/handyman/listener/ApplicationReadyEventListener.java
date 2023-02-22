@@ -10,14 +10,11 @@ import tinkoff.academy.handyman.service.ReadinessService;
 @RequiredArgsConstructor
 public class ApplicationReadyEventListener {
 
-    private final ReadinessService readinessService;
-
-
     /**
      * Меняет состояние готовности сервиса на true, когда случается событие ApplicationReadyEvent
      */
     @EventListener(ApplicationReadyEvent.class)
     public void changeReadinessStatus() {
-        readinessService.changeReadinessStateToTrue();
+        ReadinessService.changeReadinessStateToTrue();
     }
 }

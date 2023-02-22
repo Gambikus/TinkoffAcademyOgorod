@@ -16,8 +16,6 @@ import java.util.Map;
 @RequestMapping("/system")
 public class SystemController {
 
-    private final ReadinessService readinessService;
-
     @GetMapping(value = "/liveness")
     public ResponseEntity<?> getLivenessStatus() {
         return new ResponseEntity<>(HttpStatus.OK);
@@ -25,7 +23,7 @@ public class SystemController {
 
     @GetMapping(value = "/readiness", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Map<String, String>> getReadinessStatus() {
-        if (readinessService.isServiceReady()) {
+        if (ReadinessService.isServiceReady()) {
             return new ResponseEntity<>(
                     Map.of("LandscapeService", "OK"),
                     HttpStatus.OK
