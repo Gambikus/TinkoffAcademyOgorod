@@ -1,4 +1,4 @@
-package tinkoff.academy.handyman.controller;
+package tinkoff.academy.rancher.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -7,7 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import tinkoff.academy.handyman.service.ReadinessService;
+import tinkoff.academy.rancher.service.ReadinessService;
 
 import java.util.Map;
 
@@ -15,7 +15,6 @@ import java.util.Map;
 @RequiredArgsConstructor
 @RequestMapping("/system")
 public class SystemController {
-
     @GetMapping(value = "/liveness")
     public ResponseEntity<?> getLivenessStatus() {
         return new ResponseEntity<>(HttpStatus.OK);
@@ -25,7 +24,7 @@ public class SystemController {
     public ResponseEntity<Map<String, String>> getReadinessStatus() {
         if (ReadinessService.isServiceReady()) {
             return new ResponseEntity<>(
-                    Map.of("LandscapeService", "OK"),
+                    Map.of("RancherService", "OK"),
                     HttpStatus.OK
             );
         }
