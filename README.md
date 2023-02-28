@@ -26,3 +26,4 @@
 > 3. Эндпоинты Actuator *http://localhost:{servicePort}/actuator/info* и *http://localhost:{servicePort}/metrics*
 >    1. **/actuator/info** - возвращает текущую версию сервиса, берущуюся из файла build.gradle
 >    2. **/metrics** - предоставляет метрики в формате Prometheus.
+> 4. В сервисе Lanscape добавлен эндпоинт /explore для получения информации о других сервисах Rancher и Handyman, взаимодействие между сервисами происходит с помощью gRpc.
